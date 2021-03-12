@@ -26,7 +26,7 @@ namespace QuickBuy.Dominio.Entidades
 
         public abstract void Validate();
         protected bool EhValido
-        {
+    {
             get { return !mensagemValidacao.Any(); }
         }
 

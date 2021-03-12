@@ -21,7 +21,8 @@ namespace QuickBuy.Dominio.Entidades
 
         public int FormaPagamentoId { get; set; }
 
-        public FormaPagamento FormaPagamento { get; set; }                                
+        public FormaPagamento FormaPagamento { get; set; }
+        //                                
         //Pedido deve ter pelo menos um Pedido
         //ou muitos pedidos
 
