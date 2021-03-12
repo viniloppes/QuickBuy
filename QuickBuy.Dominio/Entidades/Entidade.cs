@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace QuickBuy.Dominio.Entidades
 {
     public abstract class Entidade
     {
-        public List<string> _mensagensValidacao { get; set; }
-
+        private List<string> _mensagensValidacao { get; set; }
         private List<string> mensagemValidacao
         {
             get { return _mensagensValidacao ?? (_mensagensValidacao = new List<string>()); }
@@ -17,18 +14,21 @@ namespace QuickBuy.Dominio.Entidades
         protected void LimparMensagensValidacao()
         {
             mensagemValidacao.Clear();
-        }
+        }   
 
-        protected void AdicionarCriticaMensagem(string mensagem)
+        protected void AdicionarCritica(string mensagem)
         {
             mensagemValidacao.Add(mensagem);
         }
 
+        public string ObterMensagensValidacao()
+        {
+            return string.Join(". ", mensagemValidacao);
+        }
         public abstract void Validate();
-        protected bool EhValido
-    {
+        public bool EhValido
+        {
             get { return !mensagemValidacao.Any(); }
         }
-
     }
 }
