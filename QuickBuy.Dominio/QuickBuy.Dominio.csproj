@@ -6,11 +6,11 @@
 
   <ItemGroup>
     <Compile Remove="NovaPasta1\**" />
-    <Compile Remove="NovaPasta\**" />
+    <Compile Remove="NovaPasta2\**" />
     <EmbeddedResource Remove="NovaPasta1\**" />
-    <EmbeddedResource Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="NovaPasta2\**" />
     <None Remove="NovaPasta1\**" />
-    <None Remove="NovaPasta\**" />
+    <None Remove="NovaPasta2\**" />
   </ItemGroup>
 
 </Project>

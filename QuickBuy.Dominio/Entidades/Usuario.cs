@@ -1,4 +1,6 @@
-﻿namespace QuickBuy.Dominio.Entidades
+﻿using System.Collections.Generic;
+
+namespace QuickBuy.Dominio.Entidades
 {
     class Usuario
     {
@@ -9,6 +11,10 @@
         public string Senha { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
+
+        // Usuario pode ter um ou muitos pedidos
+
+        public ICollection<Pedido> Pedidos { get; set; }
 
     }
 }
