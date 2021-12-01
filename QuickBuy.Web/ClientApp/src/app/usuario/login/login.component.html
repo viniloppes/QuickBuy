@@ -4,15 +4,72 @@
       Login do cliente
     </h1>
     <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" id="inputEmail" name="email" placeholder="Informe o seu email"
-           class="form-control mb-2" />
+    <input type="email"
+           id="inputEmail"
+           name="email"
+           placeholder="Informe o seu email"
+           class="form-control mb-2"
+           [ngClass]="{
+           'is-invalid': email.invalid && (email.dirty || email.touched),
+           'is-valid': email.valid && (email.dirty || email.touched)
+
+           }"
+           [(ngModel)]="strEmail"
+           #email="ngModel"
+           email
+           required />
+    <div class="invalid-feedback mb-2" *ngIf=" email.invalid && (email.dirty || email.touched || entrar_Onclick)">
+      <div *ngIf="email.errors.required" class="text-left"> 
+        Email é de preenchimento obrigatorio
+
+      </div>
+      <div *ngIf="email.errors.email" class="text-left">
+        Email não está no formato correto
+      </div>
+    </div>
 
     <label for="inputSenha" class="sr-only">Senha</label>
-    <input type="password" id="inputSenha" name="senha" placeholder="Informe a sua senha"
-           class="form-control mb-2" />
-    <button class="btn btn-primary btn-block">
+    <input type="password"
+           id="inputSenha"
+           name="senha"
+           placeholder="Informe a sua senha"
+           class="form-control mb-2"
+           [(ngModel)]="strSenha"
+           [ngClass]="{
+           'is-invalid': senha.invalid && (senha.dirty || senha.touched),
+           'is-valid': senha.valid && (senha.dirty || senha.touched)
+
+           }"
+           required
+           senha
+           #senha="ngModel"/>
+
+    <div class="invalid-feedback mb-2 " *ngIf="senha.invalid && (senha.dirty || senha.touched || entrar_Onclick)">
+      <div *ngIf="senha.errors.required" class="text-left">
+        Senha é de preenchimento obrigatorio
+      </div>
+      <div *ngIf="senha.errors.senha" class="text-left">
+        Senha não esta no formato correto
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary btn-block mb-2" type="submit" name="btn-entrar" (click)="entrar()">
       Entrar
     </button>
+    <img [src]="caminhoBuyPicture" [title]="titulo" />
+    <div class="alert alert-primary" role="alert" *ngIf="usuarioAutenticado == true">
+      Usuario autenticado!
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="entrar_Onclick && (strEmail != usuario.email || strSenha != usuario.senha)">
+      <span *ngIf="strEmail != usuario.email">
+        • Email incorreto
+      </span>
+      <br />
+      <span *ngIf="strSenha != usuario.senha">
+        • Senha incorreta
+      </span>
+    </div>
   </form>
 
 </div>

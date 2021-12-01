@@ -7,7 +7,7 @@ import { Component } from "@angular/core";
 
 export class ProdutoComponent {
   public nome: string;
-  public liberadoParaVenda: boolean;
+  //public liberadoParaVenda: boolean;
 
   public obterNome(): string {
     return "Samsung";
