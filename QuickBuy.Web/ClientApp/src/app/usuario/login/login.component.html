@@ -7,19 +7,19 @@
     <input type="email"
            id="inputEmail"
            name="email"
-           placeholder="Informe o seu email"
+           placeholder="Email"
            class="form-control mb-2"
            [ngClass]="{
            'is-invalid': email.invalid && (email.dirty || email.touched),
            'is-valid': email.valid && (email.dirty || email.touched)
 
            }"
-           [(ngModel)]="strEmail"
+           [(ngModel)]="usuario.email"
            #email="ngModel"
            email
            required />
     <div class="invalid-feedback mb-2" *ngIf=" email.invalid && (email.dirty || email.touched || entrar_Onclick)">
-      <div *ngIf="email.errors.required" class="text-left"> 
+      <div *ngIf="email.errors.required" class="text-left">
         Email é de preenchimento obrigatorio
 
       </div>
@@ -32,9 +32,9 @@
     <input type="password"
            id="inputSenha"
            name="senha"
-           placeholder="Informe a sua senha"
+           placeholder="Senha"
            class="form-control mb-2"
-           [(ngModel)]="strSenha"
+           [(ngModel)]="usuario.senha"
            [ngClass]="{
            'is-invalid': senha.invalid && (senha.dirty || senha.touched),
            'is-valid': senha.valid && (senha.dirty || senha.touched)
@@ -42,7 +42,7 @@
            }"
            required
            senha
-           #senha="ngModel"/>
+           #senha="ngModel" />
 
     <div class="invalid-feedback mb-2 " *ngIf="senha.invalid && (senha.dirty || senha.touched || entrar_Onclick)">
       <div *ngIf="senha.errors.required" class="text-left">
@@ -54,22 +54,27 @@
     </div>
 
 
-    <button class="btn btn-primary btn-block mb-2" type="submit" name="btn-entrar" (click)="entrar()">
+    <button class="btn btn-primary btn-block mb-2" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner">
+      </span>
       Entrar
     </button>
     <img [src]="caminhoBuyPicture" [title]="titulo" />
+    <div class="alert alert-danger" role="alert" *ngIf="mensagem">
+      {{ mensagemStr}}
+    </div>
     <div class="alert alert-primary" role="alert" *ngIf="usuarioAutenticado == true">
       Usuario autenticado!
     </div>
-    <div class="alert alert-warning" role="alert" *ngIf="entrar_Onclick && (strEmail != usuario.email || strSenha != usuario.senha)">
-      <span *ngIf="strEmail != usuario.email">
-        • Email incorreto
-      </span>
-      <br />
-      <span *ngIf="strSenha != usuario.senha">
-        • Senha incorreta
-      </span>
-    </div>
+    <!--<div class="alert alert-warning" role="alert" *ngIf="entrar_Onclick && (strEmail != usuario.email || strSenha != usuario.senha)">
+    <span *ngIf="strEmail != usuario.email">
+      • Email incorreto
+    </span>
+    <br />
+    <span *ngIf="strSenha != usuario.senha">
+      • Senha incorreta
+    </span>
+  </div>-->
   </form>
 
 </div>
