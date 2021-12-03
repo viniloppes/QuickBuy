@@ -11,14 +11,19 @@ import { Usuario } from "../../model/usuario";
 export class UsuarioServico {
   private baseURL: string;
   private _usuario: Usuario;
-  get usuario(): Usuario {
-    let usuario_json = sessionStorage.getItem("usuAuth");
-    this._usuario = JSON.parse(usuario_json);
-    return this.usuario;
-  }
   set usuario(usuario: Usuario) {
-    sessionStorage.setItem("usuAuth", JSON.stringify(usuario));
+    //sessionStorage.setItem("usuAuth", JSON.stringify(usuario));
     this._usuario = usuario;
+  }
+
+  get usuario(): Usuario {
+    //let usuario_json = sessionStorage.getItem("usuAuth");
+    //this._usuario = JSON.parse(usuario_json);
+    return this._usuario;
+  }
+
+  get header(): HttpHeaders {
+    return new HttpHeaders().set('content-type', 'application/json');
   }
 
   public usuario_autenticado(): boolean {
@@ -34,30 +39,14 @@ export class UsuarioServico {
     this.baseURL = baseUrl;
   }
   public verificarUsuario(usuario: Usuario): Observable<Usuario> {
-
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-
-    var body = {
-      email: usuario.email,
-      senha: usuario.senha
-    }
-
     //this.baseURL = raiz do site que pode ser exemplo.: http://wwww.quickbuy.com/
-    return this.http.post<Usuario>(this.baseURL + "api/usuario/verificarUsuario", body, { headers });
+    return this.http.post<Usuario>(this.baseURL + "api/usuario/verificarUsuario", JSON.stringify(usuario), { headers: this.header });
   }
 
   public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-
-    var body = {
-      email: usuario.email,
-      senha: usuario.senha,
-      nome: usuario.nome,
-      sobreNome: usuario.sobreNome,
-
-    }
 
     //this.baseURL = raiz do site que pode ser exemplo.: http://wwww.quickbuy.com/
-    return this.http.post<Usuario>(this.baseURL + "api/usuario/cadastrarUsuario", body, { headers });
+    return this.http.post<Usuario>(this.baseURL + "api/usuario/cadastrarUsuario", JSON.stringify(usuario), { headers: this.header });
+
   }
 }

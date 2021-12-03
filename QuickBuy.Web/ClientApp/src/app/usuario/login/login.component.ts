@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         //alert(this.returnUrl);
 
         this.usuarioServico.usuario = data;
+        //console.log(data);
         if (this.returnUrl == null) {
           this.router.navigate(['/']);
           this.ativar_spinner = false;

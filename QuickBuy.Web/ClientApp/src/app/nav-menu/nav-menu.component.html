@@ -18,13 +18,30 @@
             <a class="nav-link text-dark" [routerLink]='["/fetch-data"]'>Fetch data</a>
           </li>-->
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/produto"]'>Produto</a>
+            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]'>Produto</a>
           </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!usuarioLogado()">
             <a class="nav-link text-dark" [routerLink]='["/login"]'>Entrar</a>
           </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuarioLogado()">
+          <!--<li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuarioLogado()">
             <a class="nav-item nav-link text-dark" [routerLink]='[""]' (click)="Sair()">Sair</a>
+          </li>-->
+          <li class="nav-item dropdown" *ngIf="usuarioLogado()">
+            <a class="nav-link dropdown-toggle text-dark"
+               role="button"
+               aria-haspopup="true"
+               aria-expanded="false"
+               id="linkMenu"
+               data-toggle="dropdown"
+               href="#"
+               >
+              {{usuario.nome}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="linkMenu">
+              <li class="dowpdown-item m-l-10" role="menu" [routerLink]='["/sair"]' (click)="Sair()">
+                Sair
+              </li>
+            </ul>
           </li>
         </ul>
       </div>

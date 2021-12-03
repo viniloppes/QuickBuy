@@ -1,0 +1,22 @@
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+  content: "Selecionar";
+}
+
+
+.titulo {
+  color: #666;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.valid-feedback {
+  display: block;
+}
+
+.img-produto {
+  min-width: 50px;
+  max-width: 50px;
+
+}

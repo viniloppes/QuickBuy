@@ -10,6 +10,7 @@ namespace QuickBuy.Dominio.Entities
         public string  Nome { get; set; }
         public string Descricao { get; set; }
         public Decimal Preco { get; set; }
+        public string NomeArquivo { get; set; }
 
         public override void Validate()
         {

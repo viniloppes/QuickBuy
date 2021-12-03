@@ -8,6 +8,10 @@ import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
   styleUrls: ["./cadastro-usuario.component.css"]
 })
 export class CadastroUsuarioComponent implements OnInit {
+  public caminhoBuyPicture = "../../../assets/dados.jfif";
+  public ativarSpinner: boolean;
+  public mensagemStr: string = "";
+  public usuarioCadastrado: boolean;
 
   public usuario: Usuario;
 
@@ -18,11 +22,18 @@ export class CadastroUsuarioComponent implements OnInit {
     this.usuario = new Usuario();
   }
   public cadastrar() {
-    this.usuarioServico.verificarUsuario(this.usuario).subscribe(
+    this.ativarSpinner = true;
+    console.log(this.usuario);
+    this.usuarioServico.cadastrarUsuario(this.usuario).subscribe(
       dado_json => {
-
+        this.usuarioCadastrado = true;
+        this.mensagemStr = "";
+        this.ativarSpinner = false;
       },
       err => {
+        this.usuarioCadastrado = false;
+        this.mensagemStr = err.error;
+        this.ativarSpinner = false;
 
       }
     )

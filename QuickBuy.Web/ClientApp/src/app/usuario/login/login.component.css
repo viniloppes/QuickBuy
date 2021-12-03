@@ -24,3 +24,7 @@
 .login {
     color: #666;
 }
+
+.container-fluid {
+    height: calc(100vh - 80px);
+}
