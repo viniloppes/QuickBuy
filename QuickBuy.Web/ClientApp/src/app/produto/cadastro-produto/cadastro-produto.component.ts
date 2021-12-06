@@ -35,7 +35,9 @@ export class CadastroProdutoComponent implements OnInit {
   //    this.activatedRoute.queryParams.subscribe(params => {
 
   //      if (params != null) {
-  //        this.produto = params;
+  //        console.log(params);
+  //        this.produto = new Produto(params['');
+  //        console.log(this.produto);
   //      } else {
   //        this.produto = JSON.parse(produtoSession);
   //      }
