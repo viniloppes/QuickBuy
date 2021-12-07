@@ -17,8 +17,8 @@
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
             <a class="nav-link text-dark" [routerLink]='["/fetch-data"]'>Fetch data</a>
           </li>-->
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]'>Produto</a>
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuario_administrador()">
+            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]' >Produto</a>
           </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!usuarioLogado()">
             <a class="nav-link text-dark" [routerLink]='["/login"]'>Entrar</a>

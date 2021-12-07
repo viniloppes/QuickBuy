@@ -1,26 +1,28 @@
-<div class="text-center" *ngIf="!produtos">
+<div class="text-center" *ngIf="!arrayProdutos">
   <div class="spinner-border text-dark" role="status">
     <span class="sr-only">Loading...</span>
   </div>
 </div>
-<div class="container-fluid" *ngIf="produtos">
+<div class="container-fluid" *ngIf="arrayProdutos">
   <div class="row justify-content-between d-flex">
     <ng-container  *ngFor="let p of arrayProdutos">
 
       <!--<div class="row">-->
       <div class="col-md-4 mb-4">
-        <div class="card" style="min-height: 380px;">
-          <!--<div class="card">-->
-          <div class="row w-100 h-100 d-flex justify-content-center">
+        <a (click)="abrirProduto(p)" style="cursor: pointer;">
+          <div class="card" style="min-height: 380px;">
+            <!--<div class="card">-->
+            <div class="row w-100 h-100 d-flex justify-content-center">
 
-            <img style="width: 100%; max-width: 150px" src="../../../../../arquivos/{{p.nomeArquivo}}" />
+              <img style="width: 100%; max-width: 150px" src="../../../../../arquivos/{{p.nomeArquivo}}" />
+            </div>
+            <div class="card-body row w-100 h-100  d-flex justify-content-between">
+              <h5 class="card-title col-12">{{p.nome}}</h5>
+              <div class="card-text col-12">{{p.descricao | truncate: 40}}</div>
+              <h5 class="h5 col-12">{{p.preco}}</h5>
+            </div>
           </div>
-          <div class="card-body row w-100 h-100  d-flex justify-content-between">
-            <h5 class="card-title col-12">{{p.nome}}</h5>
-            <div class="card-text col-12">{{p.descricao | truncate: 40}}</div>
-            <h5 class="h5 col-12">{{p.preco}}</h5>
-          </div>
-        </div>
+        </a>
       </div>
        
 

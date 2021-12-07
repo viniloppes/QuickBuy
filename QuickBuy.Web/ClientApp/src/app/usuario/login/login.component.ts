@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router';
 import { cwd } from 'process';
 import { Usuario } from '../../model/usuario';

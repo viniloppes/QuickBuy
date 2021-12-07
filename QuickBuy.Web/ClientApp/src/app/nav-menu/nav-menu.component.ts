@@ -35,6 +35,10 @@ export class NavMenuComponent implements OnInit {
     return this.usuarioServico.usuario_autenticado();
   }
 
+  public usuario_administrador(): boolean {
+    return this.usuarioServico.usuario_administrador();
+  }
+
   Sair() {
     this.usuarioServico.limpaSessao();
     this.router.navigate(['/'])

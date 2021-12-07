@@ -21,6 +21,8 @@ import { PesquisaProdutoComponent } from './produto/pesquisa-produto/pesquisa-pr
 import { CadastroProdutoComponent } from './produto/cadastro-produto/cadastro-produto.component';
 import { LojaPesquisaComponent } from './loja/loja-pesquisa/loja-pesquisa.component';
 import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component';
+import { LojaEfetivarComponent } from './loja/loja-efetivar/loja-efetivar.component';
+import { CarrinhoCompras } from './loja/carrinho-compras/carrinho-compras';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component
     PesquisaProdutoComponent,
     CadastroProdutoComponent,
     LojaPesquisaComponent,
-    LojaProdutoComponent
+    LojaProdutoComponent,
+    LojaEfetivarComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,12 +48,13 @@ import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'cadastrar-produto', component: CadastroProdutoComponent },
+      { path: 'cadastrar-produto', component: CadastroProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'login', component: LoginComponent },
       { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
-      { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
+      { path: 'pesquisar-produto', component: PesquisaProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'loja-pesquisa', component: LojaPesquisaComponent },
-      { path: 'loja-produto', component: LojaPesquisaComponent },
+      { path: 'loja-produto', component: LojaProdutoComponent },
+      { path: 'loja-efetivar', component: LojaEfetivarComponent , canActivate: [GuardaRotas]},
 
     ]),
   ],
