@@ -23,6 +23,8 @@ import { LojaPesquisaComponent } from './loja/loja-pesquisa/loja-pesquisa.compon
 import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component';
 import { LojaEfetivarComponent } from './loja/loja-efetivar/loja-efetivar.component';
 import { CarrinhoCompras } from './loja/carrinho-compras/carrinho-compras';
+import { PedidoServico } from './servicos/pedido/pedido.servico';
+import { CompraRealizadaComponent } from './loja/compra-realizada/compra-realizada.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { CarrinhoCompras } from './loja/carrinho-compras/carrinho-compras';
     LojaPesquisaComponent,
     LojaProdutoComponent,
     LojaEfetivarComponent,
+    CompraRealizadaComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -54,13 +57,15 @@ import { CarrinhoCompras } from './loja/carrinho-compras/carrinho-compras';
       { path: 'pesquisar-produto', component: PesquisaProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'loja-pesquisa', component: LojaPesquisaComponent },
       { path: 'loja-produto', component: LojaProdutoComponent },
-      { path: 'loja-efetivar', component: LojaEfetivarComponent , canActivate: [GuardaRotas]},
+      { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [GuardaRotas] },
+      { path: 'compra-realizada', component: CompraRealizadaComponent},
 
     ]),
   ],
   providers: [
     UsuarioServico,
-    ProdutoServico
+    ProdutoServico,
+    PedidoServico,
   ],
   bootstrap: [AppComponent]
 })

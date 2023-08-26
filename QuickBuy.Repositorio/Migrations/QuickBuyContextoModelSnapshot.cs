@@ -161,6 +161,12 @@ namespace QuickBuy.Repositorio.Migrations
                             Id = 3,
                             Descricao = "Forma de Pagamento Depósito",
                             Nome = "Depósito"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Descricao = "Forma de Pagamento Depósito",
+                            Nome = "Pão de Batata"
                         });
                 });
 
@@ -179,7 +185,7 @@ namespace QuickBuy.Repositorio.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("QuickBuy.Dominio.Entities.Usuario", "Usuario")
-                        .WithMany("Pedidos")
+                        .WithMany("ItensPedido")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

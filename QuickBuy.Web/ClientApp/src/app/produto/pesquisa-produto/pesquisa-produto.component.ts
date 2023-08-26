@@ -18,7 +18,7 @@ export class PesquisaProdutoComponent implements OnInit {
         this.produtos = dado_json;
       },
       err => {
-
+        console.log(err.error);
       }
     )
   }
@@ -48,7 +48,7 @@ export class PesquisaProdutoComponent implements OnInit {
   }
 
   public editarProduto(produto: Produto) {
-    sessionStorage.setItem("editar-produto", JSON.stringify(produto))
+    sessionStorage.setItem("editar-produto", JSON.stringify(produto));
     this.router.navigate(['/cadastrar-produto'], { queryParams: produto });
   }
 

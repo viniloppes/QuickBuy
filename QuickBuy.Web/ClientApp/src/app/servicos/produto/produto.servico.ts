@@ -58,4 +58,6 @@ export class ProdutoServico implements OnInit {
     formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name)
     return this.http.post<string>(this._baseUrl + "api/produto/enviarArquivo", formData);
   }
+
+
 }

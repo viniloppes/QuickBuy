@@ -31,7 +31,7 @@ export class UsuarioServico {
   }
 
   public usuario_administrador(): boolean {
-    return this.usuario_autenticado() && this.usuario.EhAdministrador;
+    return this.usuario_autenticado() && this.usuario.ehAdministrador;
   }
   public limpaSessao() {
     sessionStorage.setItem("usuAuth", "");

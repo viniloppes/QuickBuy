@@ -52,6 +52,12 @@ namespace QuickBuy.Repositorio.Contexto
                 Id = 3,
                 Nome = "Depósito",
                 Descricao = "Forma de Pagamento Depósito"
+            },
+            new FormaPagamento()
+            {
+                Id = 4,
+                Nome = "Pão de Batata",
+                Descricao = "Forma de Pagamento Depósito"
             }
             );
 

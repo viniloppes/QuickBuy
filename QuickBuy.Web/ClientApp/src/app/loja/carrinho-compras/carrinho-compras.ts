@@ -3,6 +3,8 @@ import { Local } from 'protractor/built/driverProviders';
 import { Produto } from '../../model/produto';
 
 export class CarrinhoCompras  {
+
+
   public arrayProduto: Produto[] = [];
 
  
@@ -40,4 +42,11 @@ export class CarrinhoCompras  {
     localStorage.setItem("produtoLocalStorage", JSON.stringify(produtos));
   }
 
+  public temItensCarrinhoCompras(): boolean {
+    var items = this.obterProdutos();
+    return (items.length > 0);
+  }
+  public limparCarrinhoCompras() {
+    localStorage.setItem("produtoLocalStorage","");
+  }
 }

@@ -19,7 +19,7 @@
              #email="ngModel"
              email
              required />
-      <div class="invalid-feedback mb-2" *ngIf=" email.invalid && (email.dirty || email.touched || entrar_Onclick)">
+      <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
         <div *ngIf="email.errors.required" class="text-left">
           Email é de preenchimento obrigatório
 
@@ -43,7 +43,7 @@
              [(ngModel)]="usuario.nome"
              #nome="ngModel"
              required />
-      <div class="invalid-feedback mb-2" *ngIf=" nome.invalid && (nome.dirty || nome.touched || entrar_Onclick)">
+      <div class="invalid-feedback mb-2" *ngIf=" nome.invalid && (nome.dirty || nome.touched)">
         <div *ngIf="nome.errors.required" class="text-left">
           Nome é de preenchimento obrigatorio
 
@@ -68,7 +68,7 @@
              [(ngModel)]="usuario.sobreNome"
              #sobrenome="ngModel"
              required />
-      <div class="invalid-feedback mb-2" *ngIf=" sobrenome.invalid && (sobrenome.dirty || sobrenome.touched || entrar_Onclick)">
+      <div class="invalid-feedback mb-2" *ngIf=" sobrenome.invalid && (sobrenome.dirty || sobrenome.touched)">
         <div *ngIf="sobrenome.errors.required" class="text-left">
           Sobrenome é de preenchimento obrigatorio
 
@@ -94,7 +94,7 @@
              senha
              #senha="ngModel" />
 
-      <div class="invalid-feedback mb-2 " *ngIf="senha.invalid && (senha.dirty || senha.touched || entrar_Onclick)">
+      <div class="invalid-feedback mb-2 " *ngIf="senha.invalid && (senha.dirty || senha.touched)">
         <div *ngIf="senha.errors.required" class="text-left">
           Senha é de preenchimento obrigatorio
         </div>
@@ -104,13 +104,13 @@
       </div>
 
 
-      <button class="btn btn-primary btn-block mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
+      <button class="btn btn-primary btn-block mb-2" type="submit" (click)="cadastrar()" [disabled]="ativarSpinner">
         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpinner">
         </span>
         Cadastrar
       </button>
       <div>Já tem cadastro? <a [routerLink]="['/login']">Ir para login</a></div>
-      <div class="alert alert-danger" role="alert" *ngIf="mensagem">
+      <div class="alert alert-danger" role="alert" *ngIf="mensagemStr">
         {{ mensagemStr}}
       </div>
       <div class="alert alert-success" role="alert" *ngIf="usuarioCadastrado">
@@ -118,7 +118,7 @@
         para entrar no sistema
       </div>
 
-      <img [src]="caminhoBuyPicture" [title]="titulo" />
+      <img [src]="caminhoBuyPicture" />
     </form>
 
   </div>

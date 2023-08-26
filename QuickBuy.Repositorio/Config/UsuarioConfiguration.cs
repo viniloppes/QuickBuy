@@ -35,7 +35,7 @@ namespace QuickBuy.Repositorio.Config
                 .HasMaxLength(50);
 
             builder
-                .HasMany(u => u.Pedidos)
+                .HasMany(u => u.ItensPedido)
                 .WithOne(p => p.Usuario);
         }
     }

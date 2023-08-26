@@ -12,20 +12,20 @@
             <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
           </li>
           <!--<li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/counter"]'>Contador</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/fetch-data"]'>Fetch data</a>
-          </li>-->
+    <a class="nav-link text-dark" [routerLink]='["/counter"]'>Contador</a>
+  </li>
+  <li class="nav-item" [routerLinkActive]='["link-active"]'>
+    <a class="nav-link text-dark" [routerLink]='["/fetch-data"]'>Fetch data</a>
+  </li>-->
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuario_administrador()">
-            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]' >Produto</a>
+            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]'>Produto</a>
           </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!usuarioLogado()">
             <a class="nav-link text-dark" [routerLink]='["/login"]'>Entrar</a>
           </li>
           <!--<li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuarioLogado()">
-            <a class="nav-item nav-link text-dark" [routerLink]='[""]' (click)="Sair()">Sair</a>
-          </li>-->
+    <a class="nav-item nav-link text-dark" [routerLink]='[""]' (click)="Sair()">Sair</a>
+  </li>-->
           <li class="nav-item dropdown" *ngIf="usuarioLogado()">
             <a class="nav-link dropdown-toggle text-dark"
                role="button"
@@ -33,8 +33,7 @@
                aria-expanded="false"
                id="linkMenu"
                data-toggle="dropdown"
-               href="#"
-               >
+               href="#">
               {{usuario.nome}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="linkMenu">
@@ -42,6 +41,12 @@
                 Sair
               </li>
             </ul>
+          </li>
+
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="temItensCarrinhoCompras()">
+            <a class="nav-link text-dark" [routerLink]='["/loja-efetivar"]'>
+            <img style="max-width: 30px;" src="../../assets/shopping-cart.png" />
+            </a>
           </li>
         </ul>
       </div>
